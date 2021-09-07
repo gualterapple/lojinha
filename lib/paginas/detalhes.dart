@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lojinha/modelos/movel.dart';
 import 'package:lojinha/widgets/appbar_customizada.dart';
+import 'package:lojinha/widgets/card_detalhe.dart';
 
 class Detalhes extends StatelessWidget  {
 
@@ -23,13 +24,15 @@ class Detalhes extends StatelessWidget  {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBarCustomizada(titulo: '',ehPaginaCarrinho: false),
-        body: TextButton(
-          onPressed: ()
-          {
-            Navigator.pushNamed(context, '/carrinho');
-          },
-          child: Text('Agora para a página carrinho'),
-          ),
+        body: Align(
+          alignment: Alignment.bottomCenter,
+          child: Container(
+            margin: EdgeInsets.all(16),
+            height: 200,
+            child: CardDetalhes(
+              movel:movel)
+            ),
+        ),
       ),
     );
   }
