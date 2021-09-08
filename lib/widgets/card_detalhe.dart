@@ -5,6 +5,8 @@ import 'package:lojinha/widgets/texto_detalhes.dart';
 
 class CardDetalhes extends StatelessWidget {
 
+  //final formatKwanzas = NumberFormat.currency(locale: 'pt_BR', symbol: 'R\$');
+
   final Movel movel;
 
   CardDetalhes({required this.movel});
@@ -17,7 +19,16 @@ class CardDetalhes extends StatelessWidget {
           TextoDetalhes(
             texto: movel.titulo.toString()),
           TextoDetalhes(
-            texto: movel.descricao.toString())
+            texto: movel.descricao.toString()),
+            Row(
+              children: <Widget>[
+                Text('${movel.preco}'),
+                FlatButton(
+                  color: Theme.of(context).primaryColor,
+                  onPressed: () {}, 
+                  child: Text('Comprar'))
+              ],
+            )
         ],
       ),
     );
