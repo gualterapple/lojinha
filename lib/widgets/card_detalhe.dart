@@ -33,8 +33,8 @@ class CardDetalhes extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text('${movel.preco}', style: Theme.of(context).textTheme.headline1),
-                  FlatButton(
-                    color: Theme.of(context).primaryColor,
+                  ElevatedButton(
+                    //color: Theme.of(context).primaryColor,
                     onPressed: () {
                       _verificarItemCarrinho(Inicio.itensCarrinho, ItemCarrinho(movel: movel, quantidade: 1));
                     }, 
