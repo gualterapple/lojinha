@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class TextoDetalhes extends StatelessWidget {
 
-  final String texto;
+  final String ?texto;
+  final TextStyle ?estilo;
 
-  TextoDetalhes({required this.texto});
+  TextoDetalhes({this.texto, this.estilo});
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +16,15 @@ class TextoDetalhes extends StatelessWidget {
         left: 16,
         right: 16
       ),
-      child: Text(
-        texto
-      ),
+      child: _estilizarTexto(texto),
     );
   }
+
+  _estilizarTexto(texto){
+    if(estilo != null){
+      return Text(texto, style: estilo);
+    }
+    return Text(texto);
+  }
+
 }

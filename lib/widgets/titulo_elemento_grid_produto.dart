@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class TituloElementoGridProduto extends StatelessWidget {
 
@@ -12,6 +13,6 @@ class TituloElementoGridProduto extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       bottom: 10,
-      child: Text(titulo!));
+      child: Text(titulo!, style: Theme.of(context).textTheme.headline2));
   }
 }

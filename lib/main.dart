@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:lojinha/modelos/item_carrinho.dart';
 import 'package:lojinha/paginas/carrinho.dart';
-import 'package:lojinha/paginas/detalhes.dart';
 import 'package:lojinha/paleta_cores.dart';
 import 'package:lojinha/widgets/appbar_customizada.dart';
 import 'package:lojinha/widgets/grid_produtos.dart';
@@ -21,13 +21,29 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: PaletaCores().lilas,
+        textTheme: TextTheme(
+          headline1: TextStyle(fontSize: 20, fontFamily: 'Alata', fontWeight: FontWeight.bold, color: Colors.black),
+          headline2: TextStyle(fontSize: 20, fontFamily: 'Alata', fontWeight: FontWeight.bold, color: Colors.white),
+          headline3: TextStyle(fontSize: 16, fontFamily: 'Alata', fontWeight: FontWeight.bold, color: Colors.black),
+          headline4: TextStyle(fontSize: 20, fontFamily: 'Alata', fontWeight: FontWeight.bold, color: Colors.black),
+          headline5: TextStyle(fontSize: 20, fontFamily: 'Alata', fontWeight: FontWeight.w200, color: Colors.black),
+        )
       ),
       home: Inicio(),
     );
   }
 }
 
-class Inicio extends StatelessWidget  {
+class Inicio extends StatefulWidget  {
+  @override
+  _InicioState createState() => _InicioState();
+
+  static List<ItemCarrinho> itensCarrinho = [];
+
+}
+
+class _InicioState extends State<Inicio>  {
+
 
   final List moveis = 
   [{
@@ -113,11 +129,18 @@ class Inicio extends StatelessWidget  {
             ),
           Flexible(
             child: GridProdutos(
+              atualiza: atualiza,
               moveis: moveis,
             ),
           ),
         ],
       )
     );
+  }
+
+  void atualiza(){
+    setState(() {
+      
+    });
   }
 }

@@ -9,9 +9,10 @@ import 'package:lojinha/widgets/titulo_elemento_grid_produto.dart';
 class ElementoGridProdutos extends StatelessWidget {
 
   final Movel movel;
+  final Function atualiza;
 
   ElementoGridProdutos({
-    required this.movel
+    required this.movel, required this.atualiza
   });
 
   @override
@@ -21,7 +22,8 @@ class ElementoGridProdutos extends StatelessWidget {
          Navigator.push(context,
          MaterialPageRoute(builder: (context) => 
            Detalhes(movel: movel)
-         ));
+         )
+         ).then((value) => atualiza());
        },
        child: Container(
          decoration: BoxDecoration(
